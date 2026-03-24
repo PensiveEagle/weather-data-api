@@ -2,7 +2,7 @@ from datetime import datetime
 import pandas as pd
 import json
 
-def extract_data( data_filepath: str, skip_rows: int = 20 ) -> pd.DataFrame:
+def extract_data( data_filepath: str, skip_rows: int = 20, has_index: bool = True ) -> pd.DataFrame:
     df = pd.read_csv( data_filepath, skiprows = skip_rows )
     df.columns = [col.strip() for col in df.columns]
     return df

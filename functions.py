@@ -10,3 +10,6 @@ def extract_data( data_filepath: str ) -> pd.DataFrame:
 def filter_dataframe_on_date( dataframe: pd.DataFrame, filter_date: datetime ) -> pd.DataFrame:
     dataframe = dataframe[dataframe["DATE"] == filter_date]
     return dataframe
+
+def dataframe_to_json( dataframe: pd.DataFrame ) -> str:
+    return dataframe.to_json( orient = "table", index = False )

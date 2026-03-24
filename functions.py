@@ -2,8 +2,8 @@ from datetime import datetime
 import pandas as pd
 import json
 
-def extract_data( data_filepath: str ) -> pd.DataFrame:
-    df = pd.read_csv( data_filepath, skiprows = 20 )
+def extract_data( data_filepath: str, skip_rows: int = 20 ) -> pd.DataFrame:
+    df = pd.read_csv( data_filepath, skiprows = skip_rows )
     df.columns = [col.strip() for col in df.columns]
     df["DATE"] = pd.to_datetime( df["DATE"], format = "ISO8601" )
     return df

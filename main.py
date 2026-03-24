@@ -4,7 +4,8 @@ from dateutil.parser import parse as date_parse
 
 app = Flask( __name__ )
 
-stations = extract_data( "./data/stations.txt", skip_rows = 17 )
+stations = extract_data( "./data/stations.txt", skip_rows = 17 )[["STAID", "STANAME"]]
+
 
 @app.route( "/" )
 def home():

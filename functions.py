@@ -5,10 +5,10 @@ import json
 def extract_data( data_filepath: str, skip_rows: int = 20 ) -> pd.DataFrame:
     df = pd.read_csv( data_filepath, skiprows = skip_rows )
     df.columns = [col.strip() for col in df.columns]
-    df["DATE"] = pd.to_datetime( df["DATE"], format = "ISO8601" )
     return df
 
 def filter_dataframe_on_date( dataframe: pd.DataFrame, filter_date: datetime ) -> pd.DataFrame:
+    dataframe["DATE"] = pd.to_datetime( dataframe["DATE"], format = "ISO8601" )
     dataframe = dataframe[dataframe["DATE"] == filter_date]
     return dataframe
 

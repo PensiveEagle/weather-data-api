@@ -4,9 +4,11 @@ from dateutil.parser import parse as date_parse
 
 app = Flask( __name__ )
 
+stations = extract_data( "./data/stations.txt", skip_rows = 17 )
+
 @app.route( "/" )
 def home():
-    return render_template("home.html")
+    return render_template( "home.html", stations_table=stations.to_html() )
 
 @app.route( "/api/v1/<station_id>" )
 def all_station_data(station_id):

@@ -1,0 +1,12 @@
+from datetime import datetime
+import pandas as pd
+
+def extract_data( data_filepath: str ) -> pd.DataFrame:
+    df = pd.read_csv( data_filepath, skiprows = 20 )
+    df.columns = [col.strip() for col in df.columns]
+    df["DATE"] = pd.to_datetime( df["DATE"], format = "ISO8601" )
+    return df
+
+def filter_dataframe_on_date( dataframe: pd.DataFrame, filter_date: datetime ) -> pd.DataFrame:
+    dataframe = dataframe[dataframe["DATE"] == filter_date]
+    return dataframe

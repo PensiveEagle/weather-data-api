@@ -6,8 +6,10 @@
     </head>
     <body>
         <h1>Weather Data API</h1>
-        <p>URL format: http://localhost:5000/api/v1/{station_id}/{date}</p>
-        <p>URL example: http:localhost:5000/api/v1/10/19881025</p>
+        <p>URL format: http://localhost:5050/api/v1/{granularity}/{station_id}/{date}</p>
+        <p>URL example for one station and one date: http:localhost:5000/api/v1/single/10/19881025</p>
+        <p>URL example for one station: http:localhost:5050/api/v1/full/10</p>
+        <p>URL example for one station: http:localhost:5050/api/v1/yearly/10/1988</p>
         <p>{{stations_table|safe}}</p>
     </body>
 </html>

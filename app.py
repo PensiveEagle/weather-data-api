@@ -29,4 +29,4 @@ def year_station_data(station_id, year):
 
 
 if __name__ == "__main__":
-    app.run(debug = False, port = 5050 )
+    app.run(debug = False, port = 5050, host = "0.0.0.0" )
